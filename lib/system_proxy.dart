@@ -24,6 +24,26 @@ class SystemProxy {
         };
       }
     }
+    else if (Platform.isOhos) {
+      dynamic proxySettingRes = await _channel.invokeMethod('getProxySettings');
+      if (proxySettingRes == null) {
+        return null;
+      }
+
+      Map<String, dynamic> proxySetting = Map<String, dynamic>.from(proxySettingRes);
+      if (proxySetting['host'] != null && proxySetting['port'] != null) {
+        return {
+          'host': proxySetting['host'].toString(),
+          'port': proxySetting['port'].toString(),
+        };
+      }
+      if (proxySetting['url'] != null) {
+        return {
+          'url': proxySetting['url'].toString(),
+        };
+      }
+      return null;
+    }
     else if (Platform.isIOS) {
       // 有代理时
       // {FTPPassive: 1, HTTPEnable: 1, HTTPPort: 8899, HTTPSProxy: 127.0.0.1, HTTPSPort: 8899, __SCOPED__: {en0: {HTTPEnable: 1, HTTPPort: 8899, HTTPSProxy: 127.0.0.1, HTTPSPort: 8899, FTPPassive: 1, HTTPProxy: 127.0.0.1, SOCKSEnable: 0, HTTPSEnable: 1}}, HTTPProxy: 127.0.0.1, HTTPSEnable: 1, SOCKSEnable: 0}
