@@ -37,11 +37,6 @@ class SystemProxy {
           'port': proxySetting['port'].toString(),
         };
       }
-      if (proxySetting['url'] != null) {
-        return {
-          'url': proxySetting['url'].toString(),
-        };
-      }
       return null;
     }
     else if (Platform.isIOS) {

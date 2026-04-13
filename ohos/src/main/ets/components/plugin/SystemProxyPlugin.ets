@@ -55,14 +55,6 @@ export default class SystemProxyPlugin implements FlutterPlugin, MethodCallHandl
   }
 
   private async getProxySettings(result: MethodResult): Promise<void> {
-    const pacUrl = this.tryGetPacUrl();
-    if (pacUrl.length > 0) {
-      result.success({
-        url: pacUrl,
-      });
-      return;
-    }
-
     try {
       const proxy: connection.HttpProxy = await connection.getDefaultHttpProxy();
       if (proxy.host.length > 0) {
@@ -77,17 +69,6 @@ export default class SystemProxyPlugin implements FlutterPlugin, MethodCallHandl
       const message = this.errorMessage(error);
       Log.e(TAG, `getProxySettings error ${message}`);
       result.error('SYSTEM_PROXY_ERROR', message, null);
-    }
-  }
-
-  private tryGetPacUrl(): string {
-    try {
-      const pacUrl = connection.getPacUrl();
-      Log.i(TAG, `getProxySettings pacUrl: ${pacUrl}`);
-      return pacUrl;
-    } catch (error) {
-      Log.e(TAG, `getPacUrl error ${this.errorMessage(error)}`);
-      return "";
     }
   }
 
