@@ -45,7 +45,13 @@ Future<void> readProxy() async {
 3. Flutter: oh-3.27.4-dev; SDK: 5.0.2(14); IDE: DevEco Studio 6.0.2.642; ROM: 6.0.0.130 SP25。
 4. Flutter: 3.35.8-ohos-0.0.1; SDK: 6.0.1(21); IDE: DevEco Studio 6.0.2.642; ROM: 6.0.0.130 SP25。
 
-## 6. Usage Notes
+## 6. Version And Framework Mapping
+
+|       | 3.7 | 3.22 | 3.27 | 3.35 |
+|-------|:---:|:----:|:----:|:----:|
+| 1.0.0 |  ✅  |  ✅   |  ✅   |  ✅   |
+
+## 7. Usage Notes
 
 1. Add `system_proxy` to the Flutter project.
 2. Connect the OpenHarmony device to Wi-Fi.
@@ -53,11 +59,11 @@ Future<void> readProxy() async {
 4. Launch the example app or your app and call `SystemProxy.getProxySettings()`.
 5. Use the returned `host` and `port` to configure Dart HttpClient.
 
-## 7. License
+## 8. License
 
 This project follows a BSD-3-Clause style license. See [LICENSE](LICENSE) for details.
 
-## 8. Known Limitations
+## 9. Known Limitations
 
 1. The current OpenHarmony implementation supports manual proxy reading only.
 2. Automatic proxy/PAC is not included in the current supported feature set.

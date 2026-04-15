@@ -46,7 +46,13 @@ Future<void> readProxy() async {
 3. Flutter: oh-3.27.4-dev; SDK: 5.0.2(14); IDE: DevEco Studio 6.0.2.642; ROM: 6.0.0.130 SP25。
 4. Flutter: 3.35.8-ohos-0.0.1; SDK: 6.0.1(21); IDE: DevEco Studio 6.0.2.642; ROM: 6.0.0.130 SP25。
 
-## 6. 使用说明
+## 6. 版本和框架对应关系
+
+|       | 3.7 | 3.22 | 3.27 | 3.35 |
+|-------|:---:|:----:|:----:|:----:|
+| 1.0.0 |  ✅  |  ✅   |  ✅   |  ✅   |
+
+## 7. 使用说明
 
 1. 在 Flutter 工程中引入 `system_proxy`。
 2. 在 OpenHarmony 设备中连接 Wi-Fi。
@@ -55,11 +61,11 @@ Future<void> readProxy() async {
 5. 根据返回的 `host` 和 `port` 配置 Dart HttpClient 代理。
 
 
-## 7. 开源协议
+## 8. 开源协议
 
 本项目沿用 BSD-3-Clause 风格协议，详见 [LICENSE](LICENSE)。
 
-## 8. 已知限制
+## 9. 已知限制
 
 1. OpenHarmony 当前版本仅支持手动代理读取。
 2. 自动代理/PAC 不作为当前正式支持能力。
